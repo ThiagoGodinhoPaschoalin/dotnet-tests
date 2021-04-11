@@ -1,0 +1,23 @@
+version: "3.6"
+
+networks:
+  dapper_tests:
+    name: dapper_tests
+    driver: bridge
+
+services:
+  ###############################################
+  # SQL Server
+  ###############################################
+  sql_server_for_dapper_tests:
+    image: microsoft/mssql-server-linux
+    container_name: sql_server_for_dapper_tests
+    restart: always
+    ports:
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=D0tN3tT3sts
+      - MSSQL_PID=Developer
+    networks:
+      - dapper_tests

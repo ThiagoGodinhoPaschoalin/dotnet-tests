@@ -7,15 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGetTests", "NuGetTests", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DapperTests", "DapperTests", "{47DDA866-FA95-42E5-A194-8195D92BAEB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperTest31", "NuGetTests\DapperTests\DapperTest31\DapperTest31.csproj", "{308D1C52-8E06-4F2E-B552-42F1347997E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperTest31", "NuGetTests\DapperTests\DapperTest31\DapperTest31.csproj", "{308D1C52-8E06-4F2E-B552-42F1347997E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperTest50", "NuGetTests\DapperTests\DapperTest50\DapperTest50.csproj", "{6E1B6AB2-04C8-4CBB-8A2B-089FF4995873}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperTest50", "NuGetTests\DapperTests\DapperTest50\DapperTest50.csproj", "{6E1B6AB2-04C8-4CBB-8A2B-089FF4995873}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperSharedStandard", "NuGetTests\DapperTests\DapperSharedStandard\DapperSharedStandard.csproj", "{C0FCE950-EE86-4178-94A2-48EA495F1DE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperSharedStandard", "NuGetTests\DapperTests\DapperSharedStandard\DapperSharedStandard.csproj", "{C0FCE950-EE86-4178-94A2-48EA495F1DE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedDomain", "SharedDomain\SharedDomain.csproj", "{C9D8F6BA-3125-41A4-B17A-7BAD6193B263}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedDomain", "SharedDomain\SharedDomain.csproj", "{C9D8F6BA-3125-41A4-B17A-7BAD6193B263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ef5Domain", "Ef5Domain\Ef5Domain.csproj", "{E3AA701B-0EFC-4F1F-9F33-D16A4C7A2B70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ef5Domain", "Ef5Domain\Ef5Domain.csproj", "{E3AA701B-0EFC-4F1F-9F33-D16A4C7A2B70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkTests", "EntityFrameworkTests", "{61A1D46E-4F0E-4045-8862-3BEC6009068F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkTest31", "NuGetTests\EntityFrameworkTests\EntityFrameworkTest31\EntityFrameworkTest31.csproj", "{22626FA7-3D56-4F1C-94AE-DA3A1CC0AA3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkTest50", "NuGetTests\EntityFrameworkTests\EntityFrameworkTest50\EntityFrameworkTest50.csproj", "{73259337-3A7B-4466-B03D-8E846E9AD6FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +49,14 @@ Global
 		{E3AA701B-0EFC-4F1F-9F33-D16A4C7A2B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3AA701B-0EFC-4F1F-9F33-D16A4C7A2B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3AA701B-0EFC-4F1F-9F33-D16A4C7A2B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22626FA7-3D56-4F1C-94AE-DA3A1CC0AA3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22626FA7-3D56-4F1C-94AE-DA3A1CC0AA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22626FA7-3D56-4F1C-94AE-DA3A1CC0AA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22626FA7-3D56-4F1C-94AE-DA3A1CC0AA3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73259337-3A7B-4466-B03D-8E846E9AD6FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73259337-3A7B-4466-B03D-8E846E9AD6FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73259337-3A7B-4466-B03D-8E846E9AD6FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73259337-3A7B-4466-B03D-8E846E9AD6FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +66,9 @@ Global
 		{308D1C52-8E06-4F2E-B552-42F1347997E7} = {47DDA866-FA95-42E5-A194-8195D92BAEB7}
 		{6E1B6AB2-04C8-4CBB-8A2B-089FF4995873} = {47DDA866-FA95-42E5-A194-8195D92BAEB7}
 		{C0FCE950-EE86-4178-94A2-48EA495F1DE2} = {47DDA866-FA95-42E5-A194-8195D92BAEB7}
+		{61A1D46E-4F0E-4045-8862-3BEC6009068F} = {77E9A780-C4F9-4D38-A416-286BACC67297}
+		{22626FA7-3D56-4F1C-94AE-DA3A1CC0AA3D} = {61A1D46E-4F0E-4045-8862-3BEC6009068F}
+		{73259337-3A7B-4466-B03D-8E846E9AD6FF} = {61A1D46E-4F0E-4045-8862-3BEC6009068F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19B9A4C4-9103-4C77-A500-A7631F9BF529}

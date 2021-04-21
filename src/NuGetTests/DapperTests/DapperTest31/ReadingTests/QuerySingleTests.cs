@@ -56,7 +56,7 @@ namespace DapperTest31.ReadingTests
         }
 
         [Fact]
-        public async Task BuscarUmaListaDePessoas_ColocarStringAoInvesDoModelo_DeveDarExcecaoDeConversao()
+        public async Task BuscarUmaListaDePessoas_ColocarStringAoInvesDoModelo_ExcecaoConversaoDeDados()
         {
             var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
             var names = SeedData.GetAccounts().Select(x => x.FirstName);
@@ -64,6 +64,17 @@ namespace DapperTest31.ReadingTests
 
             await Assert.ThrowsAsync<DataException>(() 
                 => dbConnection.QuerySingleAsync<string>(sql, @Param));
+        }
+
+        [Fact]
+        public async Task BuscarUmaListaDePessoas_ColocarParametroChaveErrada_ExcecaoSql()
+        {
+            var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
+            var xpto = SeedData.GetAccounts().Select(x => x.FirstName);
+            var @Param = new { xpto };
+
+            await Assert.ThrowsAsync<System.Data.SqlClient.SqlException>(()
+                => dbConnection.QuerySingleAsync<AccountModel>(sql, @Param));
         }
     }
 }

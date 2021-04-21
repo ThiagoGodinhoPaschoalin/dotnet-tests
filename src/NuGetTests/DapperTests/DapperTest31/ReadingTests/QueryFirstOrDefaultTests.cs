@@ -2,7 +2,6 @@
 using DapperSharedStandard.Configurations;
 using SharedDomain.Configurations;
 using SharedDomain.Models;
-using System;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,15 +9,11 @@ using Xunit;
 
 namespace DapperTest31.ReadingTests
 {
-    /// <summary>
-    /// QuerySingleOrDefault; 
-    /// QuerySingleOrDefaultAsync;
-    /// </summary>
-    public class QuerySingleOrDefaultTests
+    public class QueryFirstOrDefaultTests
     {
         private readonly IDbConnection dbConnection;
 
-        public QuerySingleOrDefaultTests()
+        public QueryFirstOrDefaultTests()
         {
             dbConnection = GetNewConnections.SqlServer();
         }
@@ -29,31 +24,46 @@ namespace DapperTest31.ReadingTests
             var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
             var @Param = new { Names = new[] { "Thiago", "ALUNO" } };
 
-            var resultado = await dbConnection.QuerySingleOrDefaultAsync<AccountModel>(sql, @Param);
+            var resultado = await dbConnection.QueryFirstOrDefaultAsync<AccountModel>(sql, @Param);
 
             Assert.Equal(SeedData.Thiago.Id, resultado.Id);
         }
 
         [Fact]
-        public async Task BuscarUmaListaDePessoas_RetornarNenhumRegistro_DeveRetornarNulo()
+        public async Task BuscarUmaListaDePessoas_RetornarNenhumRegistro_RetornaNulo()
         {
             var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
             var @Param = new { Names = new[] { "Xpto", "ALUNO" } };
 
-            var resultado = await dbConnection.QuerySingleOrDefaultAsync<AccountModel>(sql, @Param);
-
+            var resultado = await dbConnection.QueryFirstOrDefaultAsync<AccountModel>(sql, @Param);
+            
             Assert.Null(resultado);
         }
 
         [Fact]
-        public async Task BuscarUmaListaDePessoas_RetornarMaisDoQueUmResultado_DeveDarExcecaoQuantidade()
+        public async Task BuscarUmaListaDePessoas_RetornarMaisDoQueUmResultado_ObterPrimeiroOrdenadoPeloSql()
         {
             var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
-            var names = SeedData.GetAccounts().Select(x => x.FirstName);
+            var names = SeedData.GetAccounts().OrderBy(x => x.FirstName).Select(x => x.FirstName);
+            var namesOrderById = SeedData.GetAccounts().OrderBy(x => x.Id).Select(x => x.FirstName);
             var @Param = new { Names = names };
 
-            await Assert.ThrowsAsync<InvalidOperationException>(()
-                => dbConnection.QuerySingleOrDefaultAsync<AccountModel>(sql, @Param));
+            var resultado = await dbConnection.QueryFirstOrDefaultAsync<AccountModel>(sql, @Param);
+
+            Assert.NotEqual(names.First(), resultado.FirstName);
+            Assert.NotEqual(namesOrderById.First(), resultado.FirstName);
+        }
+
+        [Fact]
+        public async Task BuscarUmaListaDePessoas_RetornarMaisDoQueUmResultado_ObterPrimeiroOrdenadoPeloNome()
+        {
+            var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names ORDER BY [FirstName]; ";
+            var names = SeedData.GetAccounts().OrderBy(x => x.FirstName).Select(x => x.FirstName);
+            var @Param = new { Names = names };
+
+            var resultado = await dbConnection.QueryFirstOrDefaultAsync<AccountModel>(sql, @Param);
+
+            Assert.Equal(names.First(), resultado.FirstName);
         }
 
         [Fact]
@@ -64,7 +74,7 @@ namespace DapperTest31.ReadingTests
             var @Param = new { Names = names };
 
             await Assert.ThrowsAsync<DataException>(()
-                => dbConnection.QuerySingleOrDefaultAsync<string>(sql, @Param));
+                => dbConnection.QueryFirstOrDefaultAsync<string>(sql, @Param));
         }
 
         [Fact]
@@ -75,7 +85,7 @@ namespace DapperTest31.ReadingTests
             var @Param = new { xpto };
 
             await Assert.ThrowsAsync<System.Data.SqlClient.SqlException>(()
-                => dbConnection.QuerySingleOrDefaultAsync<AccountModel>(sql, @Param));
+                => dbConnection.QueryFirstOrDefaultAsync<AccountModel>(sql, @Param));
         }
     }
 }

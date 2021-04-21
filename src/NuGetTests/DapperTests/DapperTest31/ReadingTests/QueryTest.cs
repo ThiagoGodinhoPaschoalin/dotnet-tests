@@ -2,7 +2,6 @@
 using DapperSharedStandard.Configurations;
 using SharedDomain.Configurations;
 using SharedDomain.Models;
-using System;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,50 +9,60 @@ using Xunit;
 
 namespace DapperTest31.ReadingTests
 {
-    /// <summary>
-    /// QuerySingleOrDefault; 
-    /// QuerySingleOrDefaultAsync;
-    /// </summary>
-    public class QuerySingleOrDefaultTests
+    public class QueryTest
     {
         private readonly IDbConnection dbConnection;
 
-        public QuerySingleOrDefaultTests()
+        public QueryTest()
         {
             dbConnection = GetNewConnections.SqlServer();
         }
 
         [Fact]
-        public async Task BuscarUmaListaDePessoas_RetornarSomenteUmRegistro_Sucesso()
-        {
-            var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
-            var @Param = new { Names = new[] { "Thiago", "ALUNO" } };
-
-            var resultado = await dbConnection.QuerySingleOrDefaultAsync<AccountModel>(sql, @Param);
-
-            Assert.Equal(SeedData.Thiago.Id, resultado.Id);
-        }
-
-        [Fact]
-        public async Task BuscarUmaListaDePessoas_RetornarNenhumRegistro_DeveRetornarNulo()
+        public async Task BuscarUmaListaDePessoas_RetornarNenhumRegistro_ObterListaVazia()
         {
             var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
             var @Param = new { Names = new[] { "Xpto", "ALUNO" } };
 
-            var resultado = await dbConnection.QuerySingleOrDefaultAsync<AccountModel>(sql, @Param);
+            var resultado = await dbConnection.QueryAsync<AccountModel>(sql, @Param);
 
-            Assert.Null(resultado);
+            Assert.Empty(resultado);
         }
 
         [Fact]
-        public async Task BuscarUmaListaDePessoas_RetornarMaisDoQueUmResultado_DeveDarExcecaoQuantidade()
+        public async Task BuscarUmaListaDePessoas_RetornarSomenteUmRegistro_ObterListaComUmResultado()
+        {
+            var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
+            var @Param = new { Names = new[] { "Thiago", "ALUNO" } };
+
+            var resultado = await dbConnection.QueryAsync<AccountModel>(sql, @Param);
+
+            Assert.Single(resultado);
+            Assert.Equal(SeedData.Thiago.Id, resultado.First().Id);
+        }
+
+        [Fact]
+        public async Task BuscarUmaListaDePessoas_RetornarMaisDoQueUmResultado_ObterListaDeResultados()
+        {
+            var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
+            var names = SeedData.GetAccounts().OrderBy(x => x.FirstName).Select(x => x.FirstName);
+            var @Param = new { Names = names };
+
+            var resultado = await dbConnection.QueryAsync<AccountModel>(sql, @Param);
+
+            Assert.Equal(names.Count(), resultado.Count());
+        }
+
+        [Fact]
+        public async Task BuscarUmaListaDePessoas_ColocarParametroIgnorandoMaiusculos_ObterListaDeResultados()
         {
             var sql = "SELECT * FROM [dbo].[account] WHERE [FirstName] IN @Names; ";
             var names = SeedData.GetAccounts().Select(x => x.FirstName);
-            var @Param = new { Names = names };
+            var @Param = new { names };
 
-            await Assert.ThrowsAsync<InvalidOperationException>(()
-                => dbConnection.QuerySingleOrDefaultAsync<AccountModel>(sql, @Param));
+            var resultado = await dbConnection.QueryAsync<AccountModel>(sql, @Param);
+
+            Assert.Equal(names.Count(), resultado.Count());
         }
 
         [Fact]
@@ -64,7 +73,7 @@ namespace DapperTest31.ReadingTests
             var @Param = new { Names = names };
 
             await Assert.ThrowsAsync<DataException>(()
-                => dbConnection.QuerySingleOrDefaultAsync<string>(sql, @Param));
+                => dbConnection.QueryAsync<string>(sql, @Param));
         }
 
         [Fact]
@@ -75,7 +84,7 @@ namespace DapperTest31.ReadingTests
             var @Param = new { xpto };
 
             await Assert.ThrowsAsync<System.Data.SqlClient.SqlException>(()
-                => dbConnection.QuerySingleOrDefaultAsync<AccountModel>(sql, @Param));
+                => dbConnection.QueryAsync<AccountModel>(sql, @Param));
         }
     }
 }

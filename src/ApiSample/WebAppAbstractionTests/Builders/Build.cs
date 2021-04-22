@@ -46,7 +46,8 @@ namespace WebAppAbstractionTests.Builders
         private ApplicationDbContext InMemoryDatabase()
         {
             DbContextOptionsBuilder builder = new();
-            builder.UseInMemoryDatabase(databaseName: "dotnet_tests");
+            ///Ao gerar um nome aleatório para o banco em memória, não tenho compartilhamento de dados entre os testes!
+            builder.UseInMemoryDatabase(databaseName: System.IO.Path.GetRandomFileName());
             builder.EnableDetailedErrors();
             return new ApplicationDbContext(builder.Options);
         }
@@ -72,7 +73,7 @@ namespace WebAppAbstractionTests.Builders
                 ///Mais do que um teste sendo executado com SeedData no construtor;
                 if(ex.Message.Contains("An item with the same key has already been added"))
                 {
-                    throw new System.Exception("A falha está no registro de instância do teste!");
+                    throw new System.Exception("Está compartilhando instância entre os testes!");
                 }
 
                 throw;

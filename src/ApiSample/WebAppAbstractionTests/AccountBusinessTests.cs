@@ -44,7 +44,7 @@ namespace WebAppAbstractionTests
                 Email = SeedData.Thiago.Email,
                 ProfileNames = new[] { SeedData.Professor.Name, SeedData.Gestor.Name }
             };
-            ///throw new BusinessException("O documento já existe no sistema. Não é possível criar essa conta.");
+
             await Assert.ThrowsAsync<BusinessException>(() => AccountBusiness.CreateNewAsync(request));
         }
     }

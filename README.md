@@ -13,6 +13,9 @@ https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test
 
 ///Todos os comandos em shell, são considerados que você já está na raiz do projeto!
 $ cd {...}/dotnet-tests/
+
+# Assista:
+https://www.youtube.com/watch?v=TdNrw5pEAGY
 ```
 
 

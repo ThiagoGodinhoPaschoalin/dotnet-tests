@@ -10,7 +10,7 @@ namespace Ef5Domain
 {
     public static class DiServices
     {
-        public static void UsarEf5DomainComMemoria(this IServiceCollection services)
+        public static void AddEf5DomainContextInMemory(this IServiceCollection services)
         {
             services.AddDbContextPool<ApplicationDbContext>( (provider, options) =>
             {
@@ -21,7 +21,7 @@ namespace Ef5Domain
             });
         }
 
-        public static void UserEf5DomainComSqlServer(this IServiceCollection services, string stringConnection = null)
+        public static void AddEf5DomainContextSqlServer(this IServiceCollection services, string stringConnection = null)
         {
             services.AddDbContextPool<ApplicationDbContext>((provider, options) =>
             {

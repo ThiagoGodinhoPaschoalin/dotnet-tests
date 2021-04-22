@@ -7,16 +7,16 @@ namespace SharedDomain.Models.Associative
     {
         private AccountProfile() : base() { }
 
-        public AccountProfile(Guid accountId, Guid profileId) 
+        public AccountProfile(Guid profileId) 
             : base()
         {
-            AccountId = accountId;
             ProfileId = profileId;
         }
 
         public AccountProfile(Guid accountId, Guid profileId, Guid id)
-            : this(accountId, profileId)
+            : this(profileId)
         {
+            AccountId = accountId;
             Id = id;
         }
 

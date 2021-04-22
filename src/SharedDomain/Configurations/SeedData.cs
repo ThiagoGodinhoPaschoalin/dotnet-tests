@@ -10,27 +10,103 @@ namespace SharedDomain.Configurations
     {
         #region accounts
         public static AccountModel Maite
-            => new AccountModel("Maitê", "Baptista", GenderType.Female, "491.265.159-11", Guid.Parse("DEF31D5B-DCB0-46FA-89C7-ABA0BCFDB55C"));
+            => new AccountModel(
+                "Maitê"
+                , "Baptista"
+                , GenderType.Female
+                , "491.265.159-11"
+                , "maite@godinho.com.br"
+                , Guid.Parse("DEF31D5B-DCB0-46FA-89C7-ABA0BCFDB55C"));
+
         public static AccountModel Debora
-            => new AccountModel("Débora", "Clarice", GenderType.Female, "086.198.466-80", Guid.Parse("3950A3B2-47AB-459E-BF44-F1C3065E0DFB"));
+            => new AccountModel(
+                "Débora"
+                , "Clarice"
+                , GenderType.Female
+                , "086.198.466-80"
+                , "debora@godinho.com.br"
+                , Guid.Parse("3950A3B2-47AB-459E-BF44-F1C3065E0DFB"));
+
         public static AccountModel Ayla
-            => new AccountModel("Ayla", "Ribeiro", GenderType.Female, "378.952.762-98", Guid.Parse("52675719-09BE-458E-8D0F-AE05D8629EC2"));
+            => new AccountModel(
+                "Ayla"
+                , "Ribeiro"
+                , GenderType.Female
+                , "378.952.762-98"
+                , "ayla@godinho.com.br"
+                , Guid.Parse("52675719-09BE-458E-8D0F-AE05D8629EC2"));
+
         public static AccountModel Pietra
-            => new AccountModel("Pietra", "Conceição", GenderType.Female, "139.582.121-66", Guid.Parse("3762DB4A-8681-44D4-9CA6-BD9E0540D74F"));
+            => new AccountModel(
+                "Pietra"
+                , "Conceição"
+                , GenderType.Female
+                , "139.582.121-66"
+                , "pietra@godinho.com.br"
+                , Guid.Parse("3762DB4A-8681-44D4-9CA6-BD9E0540D74F"));
+
         public static AccountModel Gabrielly
-            => new AccountModel("Gabrielly", "Viana", GenderType.Female, "408.435.312-40", Guid.Parse("8CD6BCF9-53A7-49AC-AA0D-F230B0E05AFE"));
+            => new AccountModel(
+                "Gabrielly"
+                , "Viana"
+                , GenderType.Female
+                , "408.435.312-40"
+                , "gabrielly@godinho.com.br"
+                , Guid.Parse("8CD6BCF9-53A7-49AC-AA0D-F230B0E05AFE"));
+
         public static AccountModel Thiago
-            => new AccountModel("Thiago", "Godinho", GenderType.Male, "876.283.990-02", Guid.Parse("C6DA9A85-E385-455B-A217-AFF60A26C122"));
+            => new AccountModel(
+                "Thiago"
+                , "Godinho"
+                , GenderType.Male
+                , "876.283.990-02"
+                , "thiago@godinho.com.br"
+                , Guid.Parse("C6DA9A85-E385-455B-A217-AFF60A26C122"));
+
         public static AccountModel Benicio
-            => new AccountModel("Benício", "Paschoalin", GenderType.Male, "529.480.900-16", Guid.Parse("B61D5D4D-C1F9-41C2-8323-2B11D9F64F52"));
+            => new AccountModel(
+                "Benício"
+                , "Paschoalin"
+                , GenderType.Male
+                , "529.480.900-16"
+                , "benicio@godinho.com.br"
+                , Guid.Parse("B61D5D4D-C1F9-41C2-8323-2B11D9F64F52"));
+
         public static AccountModel Marcos
-            => new AccountModel("Marcos", "Sebastião", GenderType.Male, "166.169.248-66", Guid.Parse("8108185D-CAF6-47B9-BD83-187A51F2C9C2"));
+            => new AccountModel(
+                "Marcos"
+                , "Sebastião"
+                , GenderType.Male
+                , "166.169.248-66"
+                , "marcos@godinho.com.br"
+                , Guid.Parse("8108185D-CAF6-47B9-BD83-187A51F2C9C2"));
+
         public static AccountModel Andre
-            => new AccountModel("André", "Cunha", GenderType.Male, "654.928.314-02", Guid.Parse("D6CD8238-873A-4B7A-A4B8-72C298B69E41"));
+            => new AccountModel(
+                "André"
+                , "Cunha"
+                , GenderType.Male
+                , "654.928.314-02"
+                , "andre@godinho.com.br"
+                , Guid.Parse("D6CD8238-873A-4B7A-A4B8-72C298B69E41"));
+
         public static AccountModel Thomas
-            => new AccountModel("Thomas", "Rodrigues", GenderType.Male, "732.599.674-86", Guid.Parse("D48E1805-C298-4059-9FC3-8C8326A52F3A"));
+            => new AccountModel(
+                "Thomas"
+                , "Rodrigues"
+                , GenderType.Male
+                , "732.599.674-86"
+                , "thomas@godinho.com.br"
+                , Guid.Parse("D48E1805-C298-4059-9FC3-8C8326A52F3A"));
+
         public static AccountModel Kaique
-            => new AccountModel("Kaique", "Almada", GenderType.Male, "084.356.860-78", Guid.Parse("7BA1B661-DB11-4058-8A3E-1494C7FB9891"));
+            => new AccountModel(
+                "Kaique"
+                , "Almada"
+                , GenderType.Male
+                , "084.356.860-78"
+                , "kaique@godinho.com.br"
+                , Guid.Parse("7BA1B661-DB11-4058-8A3E-1494C7FB9891"));
         #endregion
 
         #region profiles

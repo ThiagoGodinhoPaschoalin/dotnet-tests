@@ -19,15 +19,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ef5Domain", "Ef5Domain\Ef5D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkTests", "EntityFrameworkTests", "{61A1D46E-4F0E-4045-8862-3BEC6009068F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkTest31", "NuGetTests\EntityFrameworkTests\EntityFrameworkTest31\EntityFrameworkTest31.csproj", "{22626FA7-3D56-4F1C-94AE-DA3A1CC0AA3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkTest31", "NuGetTests\EntityFrameworkTests\EntityFrameworkTest31\EntityFrameworkTest31.csproj", "{22626FA7-3D56-4F1C-94AE-DA3A1CC0AA3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkTest50", "NuGetTests\EntityFrameworkTests\EntityFrameworkTest50\EntityFrameworkTest50.csproj", "{73259337-3A7B-4466-B03D-8E846E9AD6FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkTest50", "NuGetTests\EntityFrameworkTests\EntityFrameworkTest50\EntityFrameworkTest50.csproj", "{73259337-3A7B-4466-B03D-8E846E9AD6FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiSample", "ApiSample", "{B604357F-759C-42EB-B4AB-C5DBAB8971DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "ApiSample\WebApplication\WebApplication.csproj", "{B756AC34-278F-485C-8FB4-4EC2E597B21F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "ApiSample\WebApplication\WebApplication.csproj", "{B756AC34-278F-485C-8FB4-4EC2E597B21F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibApiSampleAbstraction", "ApiSample\LibApiSampleAbstraction\LibApiSampleAbstraction.csproj", "{BA4E4AE7-48FB-4B64-956D-A0B0E7300089}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibApiSampleAbstraction", "ApiSample\LibApiSampleAbstraction\LibApiSampleAbstraction.csproj", "{BA4E4AE7-48FB-4B64-956D-A0B0E7300089}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibApiSampleEfImplementation", "ApiSample\LibApiSampleEfImplementation\LibApiSampleEfImplementation.csproj", "{B4D6DB93-934A-422C-910F-B03994863126}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiSampleTests", "ApiSampleTests", "{0146D873-6134-4B16-AD2B-01E17F817AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppAbstractionTests", "ApiSample\WebAppAbstractionTests\WebAppAbstractionTests.csproj", "{2E44A8E8-6A91-4B84-BAA8-563F95D51A96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +77,14 @@ Global
 		{BA4E4AE7-48FB-4B64-956D-A0B0E7300089}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA4E4AE7-48FB-4B64-956D-A0B0E7300089}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA4E4AE7-48FB-4B64-956D-A0B0E7300089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4D6DB93-934A-422C-910F-B03994863126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D6DB93-934A-422C-910F-B03994863126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D6DB93-934A-422C-910F-B03994863126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D6DB93-934A-422C-910F-B03994863126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E44A8E8-6A91-4B84-BAA8-563F95D51A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E44A8E8-6A91-4B84-BAA8-563F95D51A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E44A8E8-6A91-4B84-BAA8-563F95D51A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E44A8E8-6A91-4B84-BAA8-563F95D51A96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +99,8 @@ Global
 		{73259337-3A7B-4466-B03D-8E846E9AD6FF} = {61A1D46E-4F0E-4045-8862-3BEC6009068F}
 		{B756AC34-278F-485C-8FB4-4EC2E597B21F} = {B604357F-759C-42EB-B4AB-C5DBAB8971DB}
 		{BA4E4AE7-48FB-4B64-956D-A0B0E7300089} = {B604357F-759C-42EB-B4AB-C5DBAB8971DB}
+		{B4D6DB93-934A-422C-910F-B03994863126} = {B604357F-759C-42EB-B4AB-C5DBAB8971DB}
+		{2E44A8E8-6A91-4B84-BAA8-563F95D51A96} = {0146D873-6134-4B16-AD2B-01E17F817AA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19B9A4C4-9103-4C77-A500-A7631F9BF529}

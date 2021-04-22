@@ -26,6 +26,7 @@ namespace Ef5Domain.Contexts
                 model.Property(x => x.FirstName).IsRequired().HasMaxLength(100).ValueGeneratedNever();
                 model.Property(x => x.LastName).IsRequired().HasMaxLength(100).ValueGeneratedNever();
                 model.Property(x => x.Document).IsRequired().HasMaxLength(30).ValueGeneratedNever();
+                model.Property(x => x.Email).IsRequired().HasMaxLength(150).ValueGeneratedNever();
                 model.HasAlternateKey(x => x.Document).HasName("AK_Account_Document");
                 model.Property(x => x.Gender).IsRequired().HasConversion(new EnumToNumberConverter<GenderType, byte>());
             });
